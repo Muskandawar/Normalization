@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    input {
+        margin-right: 33px;
+        margin-left: 10px;
+        border-radius: 5px;
+    }
+
+    #submit_button {
+        margin: 0 auto;
+        margin-top: 20px
+    }
+
+    #file_choose {
+        border-radius: 0px;
+        font-style: italic;
+    }
+</style>
+<div class="jumbotron">
+    <h1>Enter the Following details</h1>
+    <form method="POST">
+        <p>Enter your E-mail <input type="text" name="to_email" value="mukulverma855@gmail.com" style="width: 500px;" /></p>
+        <p>Mail-Subject: <input type="text" name="subject" value="Here are your normalized marks" style="width: 500px;" />
+        </p>
+        <p>Mail-Content: <input type="text" name="content" value="Sending you the results"
+                style="width: 500px;" /></p>
+        <p><input type="submit" value="send email" /></p>
+    </form>
+</div>
+{% endblock %}

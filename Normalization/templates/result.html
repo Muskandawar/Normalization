@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    span{
+        height: 10px;
+        width: 10px;
+        color :#E9ECEF;
+        background-color: #E9ECEF;
+        position: relative;
+        left: -8px;
+    }
+</style>
+<div class="jumbotron">
+    <h1>Here are the normalized marks </h1>
+    <h5>RollNo , Name ,  Marks , Normalized Marks</h5> <br>
+    {% for r in range(length) %}
+    {{RollNo[r]}} , {{Name[r]}} , {{marks[r]}} , {{FinalMarks[r]}} <br>
+    {% endfor %}
+
+    <table></table>
+
+
+</div>
+{% endblock %}

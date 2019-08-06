@@ -1,0 +1,312 @@
+##################################### NOTES BY RoboMex #########################################
+
+________________________________________________________________________________________________
+						Git
+________________________________________________________________________________________________
+
+- to refresh git after git ignore files
+	git rm -r --cached .
+	git rm --cached --ignore-unmatch `git ls-files -i --exclude-standard`
+	git add .
+	git commit -m "removed files after gitignore"
+
+- to commit changes and push
+	git add .
+	git commit -m "message"
+	git push origin master
+
+- push existing project to github
+	git init
+	git add .
+	git commit -m "pushed content"
+	git remote add origin "url"
+	git remote -v
+	git pull origin master
+	git push origin master
+
+- allow unrelated histories
+	git pull origin master --allow-unrelated-histories
+
+- to delete untracked files conflict 
+	git clean  -d  -fx .
+
+- to clone repo with no username and password
+	git remote -v
+	# if https
+	git remote set-url origin git@github.com:<username>/<repo_name>.git
+
+
+
+________________________________________________________________________________________________
+						Django
+________________________________________________________________________________________________
+
+- start project (pip install django)
+	django-admin startproject "name of project"
+	cd "name of project"
+	django-admin startapp "app name"
+	python manage.py runserver
+
+- running server on network
+	python manage.py runserver 0.0.0.0:8000
+
+- to create requirements file and install
+	pip3 freeze > requirements.txt
+	pip3 install -r requirements.txt
+
+
+________________________________________________________________________________________________
+					Jupyter Notebook
+________________________________________________________________________________________________
+
+- run jupyter on network
+	jupyter notebook --ip="enter ip of wifi"
+
+- to ignore warnings
+	import warnings
+	warnings.filterwarnings('ignore')
+
+________________________________________________________________________________________________
+					Angular
+________________________________________________________________________________________________
+
+- start an first angular app
+	npm install -g @angular/cli
+	ng new my-app
+	cd my-app
+	ng serve --open
+
+- to run existing
+	npm i
+	npm server -o
+
+- for Production Build
+	ng build --prod
+
+- to create a new component 
+	ng g c "name_of_component"
+
+- to create a service like api
+	ng g s api
+
+- for testing
+	ng test
+- on netowrk
+	ng serve --host=0.0.0.0 --port=8080
+
+- documenting code
+	npm install --save-dev @compodoc/compodoc
+	Then update your package.json
+		"scripts": {
+		    "compodoc": "compodoc -p tsconfig.json"
+		}
+	npm run compodoc
+
+- for production end with express
+	npm i
+	npm i --save compression
+	ng build --prod
+	npm install --save express
+	set "imports: [RouterModule.forRoot(routes, {useHash: true})],"
+	change "base href='/#/'"
+
+
+- make Angular SEO friendly
+	ng add @ng-toolkit/universal
+	npm install
+	npm run build:prod
+	npm run server
+
+
+________________________________________________________________________________________________
+					Linux Commands
+________________________________________________________________________________________________
+
+- to open a port
+	ufw allow port_number
+
+- to delete a folder
+	rm -r "folder_name"
+
+- to handle screen
+	screen -r # resume
+	ctrl-a d # to detach
+	screen -ls # to list screens
+
+- to check if port is free or not
+	nc -l 8080
+
+________________________________________________________________________________________________
+					Python
+________________________________________________________________________________________________
+
+- to create a virtual environment
+	pip3 install virtualenv
+	virtualenv -p /usr/bin/python3.6 venv --no-site-packages
+
+
+
+
+________________________________________________________________________________________________
+					Hadoop
+________________________________________________________________________________________________
+
+- to start hadoop cluster
+	start-all.sh
+	stop-all.sh
+
+- file commands 
+	hdfs dfs -ls
+	hdfs dfs -mkdir dir_name
+	hdfs dfs -put source_file destination_file
+
+- to format hdfs namenode
+	hdfs namenode -format
+	
+________________________________________________________________________________________________
+					Google Cloud
+________________________________________________________________________________________________
+
+- upload file to google cloud
+	gcloud compute --project [project_name] scp --zone [zone_name] [source_file]  [instance_name]:~/
+
+
+________________________________________________________________________________________________
+					Docker
+________________________________________________________________________________________________
+
+- to build docker from Dockerfile
+	docker build -t name_docker .
+
+- to run docker
+	docker run -p 3000:80 --rm name_docker
+
+- to list docker images
+	docker images
+	docker images ls
+	
+- to check docker process already running
+	docker-compose ps
+
+- to remove docker compose process
+	docker-compose rm
+
+- to delete docker iamges
+	docker rmi docker_id
+
+- to build from docker-compose.yml
+	docker-compose up --build
+
+- run specific command in a service/container
+	docker-compose run djangoapp python hello/manage.py migrate --noinput
+
+
+________________________________________________________________________________________________
+					Ionic
+________________________________________________________________________________________________
+
+- create ionic project
+	ionic start app_name blank_or_tabs_or_menuslide
+
+- start server
+	ionic serve
+	ionic serve -l # for lab
+
+- add platform
+	ionic cordova add android
+
+- run on emulator
+	ionic cordova run android
+
+- install plugins in cordova
+	ionic cordova plugin add firebase
+
+
+________________________________________________________________________________________________
+					MEAN 
+________________________________________________________________________________________________
+
+- install dependencies
+	node -v
+	npm -v
+	npm install -g express
+	npm install express-generator -g
+	npm install jade
+	npm install --save express-handlebars
+	npm install -g node-gyp
+	npm install -g bower
+
+- add in package.json
+    "jade": "~1.11.0",
+    "kerberos": "~0.0.24",
+    "mongodb": "~2.0.33"
+
+- start project
+	express sampsite
+
+- run app
+	npm start
+
+- database
+	make a data directory
+	mongod -dbpath "path of data directory"
+	mongo # to start mongo shell
+
+- set mongodb in app.js
+	var mongodb = require('mongodb');	
+
+________________________________________________________________________________________________
+					Build Web Apps in second (Nativefier)
+________________________________________________________________________________________________
+
+- to install package
+	npm install -g nativefier
+
+- to build fullscreen
+	nativefier -p linux -a x64 https://website-app-url.com --full-screen
+
+- to force a maximized app
+	nativefier -p linux -a x64 https://website-app-url.com --maximize
+
+- to enable flash player
+	nativefier -p linux -a x64 https://website-app-url.com --flash
+
+
+
+
+________________________________________________________________________________________________
+					Tech Tools
+________________________________________________________________________________________________
+
+1 - To compress images
+	https://compressor.io/
+
+2 - To generate documentation of Angular projects
+	npm install --save-dev @compodoc/compodoc
+	add line in package.json "compodoc": "./node_modules/.bin/compodoc -p tsconfig.json -w -s"
+	npm run compodoc
+
+3 - To host static website
+	https://netlify.com
+
+4 - To generate SSL certificate and host website DNS
+	https://cloudflare.com
+
+
+	
+________________________________________________________________________________________________
+					Capacitor
+________________________________________________________________________________________________
+
+npm install --save @capacitor/core @capacitor/cli
+npx cap init
+
+npx cap add android
+npx cap add ios
+npx cap add electron
+
+
+ionic start myApp tabs --capacitor
+ionic build
+
+npx cap open android

@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    input{
+        margin-right: 33px;
+        margin-left: 10px;
+        border-radius: 5px;
+    }
+    #submit_button{
+        margin: 0 auto;
+        margin-top: 20px 
+    }
+    #file_choose{
+        border-radius: 0px;
+        font-style: italic;
+    }
+
+    .pic{
+        height: 170px;
+        margin-top: 27px;
+        margin-left: 33px;
+        border-radius: 50%;
+        float: left;
+    }
+    .Team{
+        height: 200px;
+        width: 100%;
+        background-color: #E9ECEF;
+    }
+    #desc{
+        margin-left: 200px;
+        margin-bottom: 10px;
+
+    }
+    .Inner{
+        height: 200px;
+        width: 600px;
+        margin-left: 200px;
+        padding-top: 70px;
+    }
+    .name{
+        font-size: 33px;
+    }
+</style>
+<div class="jumbotron">
+    <h1>Please Upload the File</h1>
+    <form  enctype = "multipart/form-data" method="POST">
+        {{form.hidden_tag()}}
+        {{form.file.label}} {{form.file()}} <br>
+        <a href="{{ url_for('download') }}">Download sample dataset</a><br><br>
+            <p>Enter your E-mail <input type="text" name="to_email" placeholder="example@yourmail.com" style="width: 500px;">
+            </p>
+            <p><input type="submit" value="Send Email" /></p>
+            <p>Our app lets you get the normalised marks just at the click of a button!!</p>
+        </form>
+</div>
+
+    <div class="jumbotron">
+        <h1>Instructions for use :-</h1>
+        <ul>
+            <li>The file uploaded must be in xlsx format(Excel workbook)</li>
+            <li>The Column names should be corresponding to the ones listed below</li>
+                <ul>
+                    <li>RollNo</li>
+                    <li>Group</li>
+                    <li>Mark</li>
+                    <li>Name</li>
+                </ul>
+            <li>Sample dataset</li>
+            <img src="{{url_for('static', filename='Sample.svg')}}">
+        </ul>
+    </div> 
+        <h1 style="margin-left: 50px"><strong>Team</strong></h1>
+        <div class="Team"><img src="{{url_for('static', filename='mukul.png')}}" class="pic"><div class="Inner"><span class="name">Mukul Verma</span><br>B.Tech student at Thapar University</div></div>
+        <div class="Team"><img src="{{url_for('static', filename='muskan.png')}}" class="pic"><div class="Inner"><span class="name">Muskan Dawar</span><br>B.Tech student at Thapar University</div></div>
+{% endblock %}
